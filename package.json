@@ -27,6 +27,7 @@
     "toastr": "2.1.2"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "babel-cli": "6.8.0",
     "babel-core": "6.8.0",
     "babel-loader": "6.2.4",
@@ -61,8 +62,8 @@
     "rimraf": "2.5.2",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack-dev-middleware": "1.6.1",
     "webpack": "1.13.0",
+    "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
   },
   "repository": {

@@ -71,7 +71,7 @@ class ManageCoursePage extends React.Component{
 ManageCoursePage.propTypes = {
     course  :    PropTypes.object.isRequired,
     authors :    PropTypes.array.isRequired,
-    saving :     PropTypes.bool.isRequired,
+    saving  :    PropTypes.bool.isRequired,
     actions :    PropTypes.object.isRequired
 };
 

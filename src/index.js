@@ -14,11 +14,12 @@ import toastr from 'toastr';
 
 const store = configureStore();
 store.dispatch(loadCourses());
-store.dispatch(loadAuthors());
+store.dispatch(loadAuthors()); 
+
 
 render(
     <Provider store={store}>
-    <Router history={browserHistory} routes={routes} />
+        <Router history={browserHistory} routes={routes} />
     </Provider>,
     document.getElementById('app')
 ); 

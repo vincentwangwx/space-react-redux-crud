@@ -1,6 +1,7 @@
 import * as types from '../actions/actionTypes';
-import courseApi from '../api/mockCourseApi';
+import courseApi from '../api/mysqlCourseApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
+import axios from 'axios';
 
 export function loadCoursesSuccess(courses){
     return { type: types.LOAD_COURSES_SUCCESS, courses};
@@ -12,7 +13,7 @@ export function createCourseSuccess(course){
 
 export function updateCourseSuccess(course){
     return {type:types.UPDATE_COURSE_SUCCESS,course};
-}
+} 
 
 export function deleteCourseSuccess(course){
     return {type:types.DELETE_COURSE_SUCCESS,course};
@@ -20,7 +21,7 @@ export function deleteCourseSuccess(course){
 
 export function deleteCourse(course){
     return function (dispatch){
-        debugger;
+        //debugger;
         dispatch(beginAjaxCall());
         return courseApi.deleteCourse(course.id).then(
 
@@ -36,11 +37,16 @@ export function deleteCourse(course){
 
 export function loadCourses(){
     return function(dispatch){
+
         dispatch(beginAjaxCall());
-        return courseApi.getAllCourses().then(courses =>{
-            dispatch(loadCoursesSuccess(courses));
-        }).catch(error =>{
-            throw(error);
+        axios.get("http://localhost:9000/courses/")
+        .then(function (response) {
+            let json = response.data;
+            console.log(json);
+            return dispatch(loadCoursesSuccess(json));
+        })
+        .catch(function (error) {
+            console.log(error);
         });
     }
 }
